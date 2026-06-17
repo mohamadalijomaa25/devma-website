@@ -23,9 +23,9 @@ export function About() {
   ];
 
   const statsData = [
-    { value: "150+", label: t("about.projects") },
+    { value: "50+", label: t("about.projects") },
     { value: "99%", label: t("about.satisfaction") },
-    { value: "2–4w", label: locale === "ar" ? "مدة التسليم" : "Typical delivery" },
+    { value: "2-4 Days", label: locale === "ar" ? "مدة التسليم" : "Typical delivery" },
     { value: "100%", label: locale === "ar" ? "متوافق مع الجوال" : "Mobile-optimized" },
   ];
 

@@ -5,20 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
 const projects = [
-  { id: 1, num: "i.", titleKey: "Fintech Startup", category: "Business", categoryKey: "Business", url: "devma.web", descEn: "A credibility-first website for a financial technology company, organised around investor trust and clear product positioning.", descAr: "موقع شركة تقنية مالية مبني على المصداقية أولاً، منظّم حول ثقة المستثمرين وتحديد المنتج بوضوح." },
-  { id: 2, num: "ii.", titleKey: "Gourmet Bistro", category: "Restaurant", categoryKey: "Restaurant", url: "devma.web", descEn: "A restaurant site where the menu is the hero — visual, readable, and reservation-ready. Warm typography, fast on mobile.", descAr: "موقع مطعم يكون فيه القائمة هو البطل — مرئي وقابل للقراءة وجاهز للحجز. طباعة دافئة وسريع على الجوال." },
-  { id: 3, num: "iii.", titleKey: "Modern Apparel", category: "E-commerce", categoryKey: "E-commerce", url: "devma.web", descEn: "A fashion store with seamless product filtering, a visual lookbook, and a checkout that gets out of the way.", descAr: "متجر أزياء مع تصفية سلسة للمنتجات، وكتاب صور مرئي، وعملية دفع لا تعيق المستخدم." },
-  { id: 4, num: "iv.", titleKey: "SaaS Platform", category: "Landing Pages", categoryKey: "Landing Pages", url: "devma.web", descEn: "A high-converting product landing page built around one action — sign up. Animated feature showcase, zero distractions.", descAr: "صفحة هبوط عالية التحويل مبنية حول إجراء واحد — التسجيل. عرض ميزات متحرك بدون تشتيت." },
-  { id: 5, num: "v.", titleKey: "Real Estate Firm", category: "Business", categoryKey: "Business", url: "devma.web", descEn: "Property listings with advanced filtering, map integration, and the visual authority that makes buyers trust the brand.", descAr: "قوائم عقارية مع تصفية متقدمة، وتكامل الخريطة، والسلطة البصرية التي تجعل المشترين يثقون بالعلامة التجارية." },
-  { id: 6, num: "vi.", titleKey: "Cafe & Roastery", category: "Restaurant", categoryKey: "Restaurant", url: "devma.web", descEn: "An artisan coffee brand site with a story-first structure. Warm, premium, and local SEO optimized.", descAr: "موقع علامة قهوة حرفية بهيكل يروي القصة أولاً. دافئ وراقٍ ومُحسَّن لمحركات البحث المحلية." },
+  { id: 1, num: "i.", titleKey: "Crispello", category: "Restaurant", categoryKey: "Restaurant", url: "crispello.online", descEn: "A complete restaurant menu and ordering system designed for seamless user experience.", descAr: "نظام قائمة طعام وطلب متكامل للمطاعم مصمم لتجربة مستخدم سلسة." },
+  { id: 2, num: "ii.", titleKey: "Skill Swap", category: "Business", categoryKey: "Business", url: "skillswap.homes", descEn: "A platform built for students to exchange skills with each other without the need for money.", descAr: "منصة مبنية للطلاب لتبادل المهارات مع بعضهم البعض دون الحاجة إلى الأموال." },
 ];
 
 export function Portfolio() {
   const { t, locale } = useLanguage();
   const [active, setActive] = useState("All");
 
-  const categoriesEn = ["All", "Business", "Restaurant", "E-commerce", "Landing Pages"];
-  const categoriesAr = ["الكل", "الشركات", "المطاعم", "التجارة الإلكترونية", "صفحات الهبوط"];
+  const categoriesEn = ["All", "Restaurant", "Business"];
+  const categoriesAr = ["الكل", "المطاعم", "الشركات"];
   const categories = locale === "ar" ? categoriesAr : categoriesEn;
 
   // Map Arabic category to English for filtering

@@ -105,10 +105,8 @@ export function Contact() {
                 <div className="relative">
                   <select id="budget" name="budget" className={inputClass}>
                     <option value="" className="bg-card">{t("contact.selectBudget")}</option>
-                    <option value="$1,000 – $3,000" className="bg-card">$1,000 – $3,000</option>
-                    <option value="$3,000 – $5,000" className="bg-card">$3,000 – $5,000</option>
-                    <option value="$5,000 – $10,000" className="bg-card">$5,000 – $10,000</option>
-                    <option value="$10,000+" className="bg-card">$10,000+</option>
+                    <option value="Less than $500" className="bg-card">{locale === "ar" ? "أقل من 500$" : "Less than $500"}</option>
+                    <option value="$500 – $1,000" className="bg-card">$500 – $1,000</option>
                   </select>
                 </div>
               </div>
