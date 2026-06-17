@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Instagram = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -17,43 +18,50 @@ const Mail = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const footerServices = ["Business Websites", "Restaurant Websites", "E-commerce", "Landing Pages", "Website Redesign", "SEO Optimization"];
-const footerNav = ["About", "Services", "Work", "Process", "Contact"];
-
 export function Footer() {
+  const { t, locale } = useLanguage();
+
+  const footerServicesEn = ["Business Websites", "Restaurant Websites", "E-commerce", "Landing Pages", "Website Redesign", "SEO Optimization"];
+  const footerServicesAr = ["مواقع الشركات", "مواقع المطاعم", "التجارة الإلكترونية", "صفحات الهبوط", "إعادة التصميم", "تحسين محركات البحث"];
+  const footerServices = locale === "ar" ? footerServicesAr : footerServicesEn;
+
+  const footerNavEn = ["About", "Services", "Work", "Process", "Contact"];
+  const footerNavAr = ["من نحن", "خدماتنا", "أعمالنا", "آلية العمل", "تواصل معنا"];
+  const footerNavHrefs = ["#about", "#services", "#portfolio", "#process", "#contact"];
+  const footerNav = locale === "ar" ? footerNavAr : footerNavEn;
+
   return (
-    <footer className="border-t border-[#1e1e1e] bg-[#080808]">
+    <footer className="border-t border-border bg-secondary">
       <div className="container mx-auto px-6 pt-16 pb-8" style={{maxWidth:"1200px"}}>
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-12 mb-14">
           {/* Brand */}
           <div>
             <a href="#" className="inline-flex items-center gap-3 mb-5 group">
-              <div className="w-10 h-10 rounded-full overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 border border-[#3B82F6]/30 bg-[#0A0A0A] flex-shrink-0">
+              <div className="w-10 h-10 rounded-full overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 border border-primary/30 bg-background flex-shrink-0">
                 <img src="/logo-alt.jpg" alt="DEVMA Mark" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = '/logo.png'; }} />
               </div>
-              <span className="text-white font-bold text-lg tracking-wide uppercase leading-none mt-1" style={{fontFamily:"var(--font-outfit), sans-serif"}}>
-                DEVMA<span className="text-[#3B82F6]">.WEB</span>
+              <span className="text-foreground font-bold text-lg tracking-wide uppercase leading-none mt-1" style={{fontFamily:"var(--font-outfit), sans-serif"}}>
+                DEVMA<span className="text-primary">.WEB</span>
               </span>
             </a>
-            <p className="text-[#444] text-sm leading-relaxed max-w-xs mb-5"
+            <p className="text-muted text-sm leading-relaxed max-w-xs mb-5"
               style={{fontStyle:"italic", fontFamily:"var(--font-serif), 'Instrument Serif', Georgia, serif"}}>
-              A web design studio. Custom websites for businesses that want to be taken seriously —{" "}
-              <em>carefully, one project at a time.</em>
+              {t("footer.desc")}
             </p>
             <div className="flex items-center gap-3">
               <a
                 href="https://instagram.com/devma.web"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg border border-[#1e1e1e] flex items-center justify-center text-[#444] hover:text-white hover:border-[#333] transition-all"
+                className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-muted transition-all"
                 aria-label="Instagram"
               >
                 <Instagram />
               </a>
               <a
                 href="mailto:hello@devma.web"
-                className="w-8 h-8 rounded-lg border border-[#1e1e1e] flex items-center justify-center text-[#444] hover:text-white hover:border-[#333] transition-all"
+                className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-muted transition-all"
                 aria-label="Email"
               >
                 <Mail />
@@ -63,11 +71,13 @@ export function Footer() {
 
           {/* Catalogue */}
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#444] mb-5">Catalogue</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-5">
+              {locale === "ar" ? "الخدمات" : "Catalogue"}
+            </h4>
             <ul className="space-y-2.5">
               {footerServices.map((s) => (
                 <li key={s}>
-                  <a href="#services" className="text-sm text-[#555] hover:text-white transition-colors">{s}</a>
+                  <a href="#services" className="text-sm text-muted hover:text-foreground transition-colors">{s}</a>
                 </li>
               ))}
             </ul>
@@ -75,11 +85,13 @@ export function Footer() {
 
           {/* Index */}
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#444] mb-5">Index</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-5">
+              {locale === "ar" ? "الفهرس" : "Index"}
+            </h4>
             <ul className="space-y-2.5">
-              {footerNav.map((n) => (
+              {footerNav.map((n, i) => (
                 <li key={n}>
-                  <a href={`#${n.toLowerCase()}`} className="text-sm text-[#555] hover:text-white transition-colors">{n}</a>
+                  <a href={footerNavHrefs[i]} className="text-sm text-muted hover:text-foreground transition-colors">{n}</a>
                 </li>
               ))}
             </ul>
@@ -87,24 +99,30 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#444] mb-5">Get in Touch</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-5">
+              {locale === "ar" ? "تواصل" : "Get in Touch"}
+            </h4>
             <ul className="space-y-2.5">
-              <li><a href="mailto:hello@devma.web" className="text-sm text-[#555] hover:text-white transition-colors">hello@devma.web</a></li>
-              <li><a href="https://instagram.com/devma.web" target="_blank" rel="noreferrer" className="text-sm text-[#555] hover:text-white transition-colors">@devma.web</a></li>
-              <li><span className="text-sm text-[#333]">Remote · Worldwide</span></li>
+              <li><a href="mailto:hello@devma.web" className="text-sm text-muted hover:text-foreground transition-colors">hello@devma.web</a></li>
+              <li><a href="https://instagram.com/devma.web" target="_blank" rel="noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">@devma.web</a></li>
+              <li><span className="text-sm text-muted">{locale === "ar" ? "عن بعد · حول العالم" : "Remote · Worldwide"}</span></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#111] pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <span className="text-[11px] text-[#333] tracking-wide">
-            © {new Date().getFullYear()} DEVMA Studio &nbsp;·&nbsp;{" "}
+        <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <span className="text-[11px] text-muted tracking-wide">
+            © {new Date().getFullYear()} {t("footer.copyright")} &nbsp;·&nbsp;{" "}
             <em style={{fontFamily:"var(--font-serif), Georgia, serif"}}>No. 01</em>
           </span>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-[11px] text-[#333] hover:text-[#555] transition-colors">Privacy</a>
-            <a href="#" className="text-[11px] text-[#333] hover:text-[#555] transition-colors">Terms</a>
+            <a href="#" className="text-[11px] text-muted hover:text-foreground transition-colors">
+              {locale === "ar" ? "الخصوصية" : "Privacy"}
+            </a>
+            <a href="#" className="text-[11px] text-muted hover:text-foreground transition-colors">
+              {locale === "ar" ? "الشروط" : "Terms"}
+            </a>
           </div>
         </div>
       </div>
