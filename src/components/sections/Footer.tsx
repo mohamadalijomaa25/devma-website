@@ -60,7 +60,7 @@ export function Footer() {
                 <Instagram />
               </a>
               <a
-                href="mailto:hello@devma.web"
+                href="mailto:devma.web.lb@gmail.com"
                 className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-muted transition-all"
                 aria-label="Email"
               >
@@ -103,7 +103,7 @@ export function Footer() {
               {locale === "ar" ? "تواصل" : "Get in Touch"}
             </h4>
             <ul className="space-y-2.5">
-              <li><a href="mailto:hello@devma.web" className="text-sm text-muted hover:text-foreground transition-colors">hello@devma.web</a></li>
+              <li><a href="mailto:devma.web.lb@gmail.com" className="text-sm text-muted hover:text-foreground transition-colors">devma.web.lb@gmail.com</a></li>
               <li><a href="https://instagram.com/devma.web" target="_blank" rel="noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">@devma.web</a></li>
               <li><span className="text-sm text-muted">{locale === "ar" ? "عن بعد · حول العالم" : "Remote · Worldwide"}</span></li>
             </ul>

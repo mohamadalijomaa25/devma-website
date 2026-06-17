@@ -133,7 +133,7 @@ export function Navbar() {
             </nav>
             <div className="mt-auto pb-10 flex items-center gap-6 text-xs text-muted tracking-wider">
               <a href="https://instagram.com/devma.web" className="hover:text-foreground transition-colors">@devma.web</a>
-              <a href="mailto:hello@devma.web" className="hover:text-foreground transition-colors">hello@devma.web</a>
+              <a href="mailto:devma.web.lb@gmail.com" className="hover:text-foreground transition-colors">devma.web.lb@gmail.com</a>
             </div>
           </motion.div>
         )}
