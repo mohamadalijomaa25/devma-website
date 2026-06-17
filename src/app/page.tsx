@@ -5,7 +5,6 @@ import { Portfolio } from "@/components/sections/Portfolio";
 import { About } from "@/components/sections/About";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { Process } from "@/components/sections/Process";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
@@ -20,7 +19,6 @@ export default function Home() {
       <About />
       <WhyChooseUs />
       <Process />
-      <Testimonials />
       <FAQ />
       <Contact />
       <Footer />
