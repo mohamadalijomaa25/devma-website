@@ -18,6 +18,12 @@ const Mail = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const WhatsApp = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+  </svg>
+);
+
 export function Footer() {
   const { t, locale } = useLanguage();
 
@@ -66,6 +72,15 @@ export function Footer() {
               >
                 <Mail />
               </a>
+              <a
+                href="https://wa.me/96181440046"
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-muted transition-all"
+                aria-label="WhatsApp"
+              >
+                <WhatsApp />
+              </a>
             </div>
           </div>
 
@@ -103,6 +118,7 @@ export function Footer() {
               {locale === "ar" ? "تواصل" : "Get in Touch"}
             </h4>
             <ul className="space-y-2.5">
+              <li><a href="https://wa.me/96181440046" target="_blank" rel="noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">+961 81 440 046</a></li>
               <li><a href="mailto:devma.web.lb@gmail.com" className="text-sm text-muted hover:text-foreground transition-colors">devma.web.lb@gmail.com</a></li>
               <li><a href="https://instagram.com/devma.web" target="_blank" rel="noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">@devma.web</a></li>
               <li><span className="text-sm text-muted">{locale === "ar" ? "عن بعد · حول العالم" : "Remote · Worldwide"}</span></li>
