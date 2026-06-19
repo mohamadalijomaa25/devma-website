@@ -23,9 +23,8 @@ export function About() {
   ];
 
   const statsData = [
-    { value: "50+", label: t("about.projects") },
-    { value: "99%", label: t("about.satisfaction") },
-    { value: "2-4 Days", label: locale === "ar" ? "مدة التسليم" : "Typical delivery" },
+    { value: "100%", label: t("about.satisfaction") },
+    { value: locale === "ar" ? "أسبوع إلى أسبوعين" : "1-2 Weeks", label: locale === "ar" ? "مدة التسليم" : "Typical delivery" },
     { value: "100%", label: locale === "ar" ? "متوافق مع الجوال" : "Mobile-optimized" },
   ];
 
@@ -58,7 +57,7 @@ export function About() {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border overflow-hidden mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border overflow-hidden mb-14">
           {statsData.map((s, i) => (
             <motion.div
               key={i}

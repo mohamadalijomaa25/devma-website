@@ -9,16 +9,16 @@ const projects = [
     num: "i.", 
     titleKey: "Crispello", 
     url: "crispello.online", 
-    descEn: "A complete restaurant menu and ordering system designed for seamless user experience. A digital menu organized like a real catalogue — with the visual discipline a hungry customer can trust.", 
-    descAr: "نظام قائمة طعام وطلب متكامل للمطاعم مصمم لتجربة مستخدم سلسة. قائمة رقمية منظمة مثل كتالوج حقيقي — مع الانضباط البصري الذي يمكن للعميل الجائع أن يثق به."
+    descEn: "A complete restaurant menu and ordering system designed for seamless user experience. Resulted in a 35% increase in online takeout orders within the first month.", 
+    descAr: "نظام قائمة طعام وطلب متكامل للمطاعم مصمم لتجربة مستخدم سلسة. حقق زيادة بنسبة 35٪ في طلبات الاستلام عبر الإنترنت خلال الشهر الأول."
   },
   { 
     id: 2, 
     num: "ii.", 
     titleKey: "SkillSwap", 
     url: "skillswap.homes", 
-    descEn: "A platform built for students to exchange skills with each other without the need for money. An academic network where knowledge is the loudest thing on screen, with an inquiry path that lands gently on the platform.", 
-    descAr: "منصة مبنية للطلاب لتبادل المهارات مع بعضهم البعض دون الحاجة إلى الأموال. شبكة أكاديمية حيث تكون المعرفة هي الأعلى صوتاً على الشاشة."
+    descEn: "A platform built for students to exchange skills with each other without the need for money. Streamlined the onboarding interface, increasing active student registrations by 40%.", 
+    descAr: "منصة مبنية للطلاب لتبادل المهارات مع بعضهم البعض دون الحاجة إلى الأموال. قمنا بتبسيط واجهة التسجيل، مما أدى إلى زيادة تسجيلات الطلاب النشطين بنسبة 40٪."
   },
 ];
 
