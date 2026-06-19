@@ -115,7 +115,7 @@ export function Hero() {
                 href="#services"
                 className="text-foreground text-sm font-medium border-b border-border hover:border-foreground pb-1 transition-colors duration-300"
               >
-                {locale === "ar" ? "انظر التكلفة →" : "See what it costs →"}
+                {locale === "ar" ? "استكشف خدماتنا →" : "Explore our services →"}
               </a>
             </div>
           </div>
