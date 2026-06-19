@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   keywords: "web design, web development, custom website, business website, DEVMA",
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { CustomCursor } from "@/components/ui/CustomCursor";
