@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun, Globe } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/components/ThemeProvider";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Navbar() {
@@ -32,14 +32,14 @@ export function Navbar() {
     <>
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-          scrolled ? "bg-background/95 backdrop-blur-xl border-b border-border" : "bg-transparent"
+          scrolled ? "bg-background/60 backdrop-blur-2xl border-b border-white/5 " : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-6 h-16 flex items-center justify-between" style={{maxWidth:"1200px"}}>
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 border border-[#3B82F6]/30 bg-background flex-shrink-0">
-              <img src="/logo-alt.jpg" alt="DEVMA Mark" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = '/logo.png'; }} />
+            <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center border border-primary/40 shadow-[0_0_12px_rgba(59,130,246,0.5)] transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.8)]">
+              <img src="/logo-alt.jpeg" alt="DEVMA Mark" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = '/logo.jpg'; }} />
             </div>
             <span className="text-foreground font-bold text-base md:text-lg tracking-wide uppercase leading-none mt-1" style={{fontFamily:"var(--font-outfit), sans-serif"}}>
               DEVMA<span className="text-primary">.WEB</span>
@@ -52,9 +52,10 @@ export function Navbar() {
               <a
                 key={l.name}
                 href={l.href}
-                className="text-xs font-semibold tracking-widest uppercase text-muted hover:text-foreground transition-colors duration-200"
+                className="group relative text-xs font-semibold tracking-widest uppercase text-muted hover:text-foreground transition-colors duration-300 py-2"
               >
                 {l.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
@@ -66,7 +67,7 @@ export function Navbar() {
             <div className="flex items-center gap-2 border-r border-border pe-4 me-1">
               <button
                 onClick={() => setLocale(locale === "en" ? "ar" : "en")}
-                className="w-8 h-8 rounded-full flex items-center justify-center text-muted hover:text-foreground hover:bg-border/50 transition-colors"
+                className="w-8 h-8 flex items-center justify-center text-muted hover:text-foreground hover:bg-border/50 transition-colors"
                 title="Toggle Language"
               >
                 <Globe size={16} />
@@ -76,7 +77,7 @@ export function Navbar() {
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-muted hover:text-foreground hover:bg-border/50 transition-colors"
+                  className="w-8 h-8 flex items-center justify-center text-muted hover:text-foreground hover:bg-border/50 transition-colors"
                   title="Toggle Theme"
                 >
                   {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
@@ -88,7 +89,7 @@ export function Navbar() {
               href="https://wa.me/96181440046"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200"
+              className="hidden md:inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase px-5 py-2.5 bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-white hover: transition-all duration-300"
             >
               {t("nav.startProject")}
             </a>

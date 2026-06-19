@@ -26,7 +26,7 @@ export function Card({
       whileHover={hoverEffect ? { y: -5, transition: { duration: 0.2 } } : undefined}
       className={cn(
         "bg-secondary/50 border border-border backdrop-blur-sm rounded-2xl p-6 md:p-8",
-        hoverEffect && "hover:border-primary/50 transition-colors duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]",
+        hoverEffect && "hover:border-primary/50 transition-colors duration-300  hover:",
         className
       )}
     >

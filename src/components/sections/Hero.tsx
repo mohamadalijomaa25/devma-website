@@ -1,174 +1,179 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
-  const { t, locale } = useLanguage();
+  const { locale, t } = useLanguage();
+  const [timeString, setTimeString] = useState("");
 
-  const heroRailItems = [
-    { label: t("hero.available"), value: t("hero.newProjects") },
-    { label: t("hero.delivery"), value: t("hero.weeks") },
-    { label: t("hero.location"), value: t("hero.worldwide") },
-  ];
+  // Update Beirut time
+  useEffect(() => {
+    const updateTime = () => {
+      const beirutTime = new Date().toLocaleTimeString("en-US", {
+        timeZone: "Asia/Beirut",
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      setTimeString(beirutTime);
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-between pt-16 overflow-hidden">
-      {/* Top meta bar */}
-      <div className="container mx-auto px-6 pt-10 pb-4 flex items-center justify-between border-b border-border" style={{maxWidth:"1200px"}}>
-        <span className="flex items-center gap-2 text-xs text-muted">
-          <span className="pulse-dot" />
-          <em style={{fontStyle:"italic"}}>Open roster · accepting new clients</em>
-        </span>
-        <span className="text-xs text-muted hidden sm:block tracking-wider">
-          No.&nbsp;01 &nbsp;·&nbsp; Est. 2024
-        </span>
-      </div>
+    <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden border-b border-border bg-background">
+      <div className="container mx-auto px-6" style={{maxWidth:"1300px"}}>
+        
+        {/* Massive Headline */}
+        <div className="mb-12 md:mb-20">
+          <h1 className="text-[3.5rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[8rem] tracking-tight leading-[0.9] font-serif text-foreground ml-[-0.05em]">
+            {locale === "ar" ? (
+              <>
+                <span className="text-gradient italic font-serif pr-2">مواقع</span>
+                <br />
+                تُحقق نتائج.
+              </>
+            ) : (
+              <>
+                <span className="text-foreground">websites that</span>
+                <br />
+                <span className="text-gradient italic font-serif">convert.</span>
+              </>
+            )}
+          </h1>
+        </div>
 
-      {/* Main hero body */}
-      <div className="container mx-auto px-6 flex-1 flex flex-col justify-center py-16 md:py-20" style={{maxWidth:"1200px"}}>
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-16 lg:gap-24 items-start">
-          {/* Left — headline + body */}
-          <div>
-            <motion.h1
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.0] mb-8"
-            >
-              {locale === "ar" ? (
-                <>
-                  <span
-                    className="serif-italic"
-                    style={{
-                      background: "linear-gradient(135deg, #3B82F6 0%, #60a5fa 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    مواقع
-                  </span>{" "}
-                  تُحقق نتائج.
-                </>
-              ) : (
-                <>
-                  Websites that{" "}
-                  <br className="hidden md:block" />
-                  <span
-                    className="serif-italic"
-                    style={{
-                      background: "linear-gradient(135deg, #3B82F6 0%, #60a5fa 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    convert.
-                  </span>
-                </>
-              )}
-            </motion.h1>
+        {/* Two-Column Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-16 lg:gap-32 items-start">
+          
+          {/* Left Column (Main Info) */}
+          <div className="max-w-2xl">
+            <h2 className="text-[1.5rem] md:text-[1.8rem] font-serif text-foreground leading-[1.4] mb-8">
+              {locale === "ar" 
+                ? "نصمم ونبني مواقع إلكترونية احترافية تركز على المبيعات لترفع من قيمة أعمالك."
+                : "We design and build premium, conversion-focused websites that elevate your business."}
+            </h2>
+            
+            <p className="text-muted/80 text-lg md:text-xl font-serif italic mb-12">
+              {locale === "ar" 
+                ? "— لا نستخدم القوالب الجاهزة. لا نقبل المساومة على الجودة."
+                : "— No templates. No compromises."}
+            </p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-muted text-lg max-w-xl leading-relaxed mb-4"
-            >
-              {t("hero.desc")}
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-muted/60 text-base mb-10"
-              style={{fontStyle:"italic", fontFamily:"var(--font-serif), 'Instrument Serif', Georgia, serif"}}
-            >
-              {locale === "ar" ? "— النوع من العمل الذي لا تستطيع القوالب لمسه." : "— the kind of work a template can't touch."}
-            </motion.p>
-
-            {/* Key benefits row */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="grid grid-cols-3 gap-6 mb-10 border-t border-b border-border py-6"
-            >
-              {[
-                { strong: t("hero.weeks"), sub: locale === "ar" ? "مدة التسليم" : "typical delivery" },
-                { strong: locale === "ar" ? "مخصص" : "Custom", sub: locale === "ar" ? "بناء من الصفر" : "built from scratch" },
-                { strong: locale === "ar" ? "أنت تملكه" : "You own it", sub: locale === "ar" ? "الكود والنطاق" : "code & domain" },
-              ].map((item, i) => (
-                <div key={i}>
-                  <div className="text-foreground font-bold text-sm">{item.strong}</div>
-                  <div className="text-muted text-xs mt-0.5">{item.sub}</div>
+            {/* List with horizontal rules */}
+            <div className="border-t border-border flex flex-col mb-12">
+              
+              {/* Row 1 */}
+              <div className="py-4 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+                <div className="flex items-center gap-6">
+                  <span className="text-gradient italic font-serif text-xl w-6">i</span>
+                  <span className="text-foreground text-lg">{locale === "ar" ? "أسبوعين" : "Two weeks"}</span>
                 </div>
-              ))}
-            </motion.div>
+                <span className="text-muted text-sm tracking-wide">
+                  {locale === "ar" ? "التسليم النموذجي، الإطلاق مشمول" : "typical delivery, launch included"}
+                </span>
+              </div>
+
+              {/* Row 2 */}
+              <div className="py-4 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+                <div className="flex items-center gap-6">
+                  <span className="text-gradient italic font-serif text-xl w-6">ii</span>
+                  <span className="text-foreground text-lg">{locale === "ar" ? "50$ للبدء" : "$50 to begin"}</span>
+                </div>
+                <span className="text-muted text-sm tracking-wide">
+                  {locale === "ar" ? "تدفع مرة واحدة، لا رسوم شهرية" : "one-time, no monthly fees"}
+                </span>
+              </div>
+
+              {/* Row 3 */}
+              <div className="py-4 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+                <div className="flex items-center gap-6">
+                  <span className="text-gradient italic font-serif text-xl w-6">iii</span>
+                  <span className="text-foreground text-lg">{locale === "ar" ? "استضافة، مدى الحياة" : "Hosting, for life"}</span>
+                </div>
+                <span className="text-muted text-sm tracking-wide">
+                  {locale === "ar" ? "نحن نبقيه متاحاً، وأنت تملك الكود" : "we keep it live, you own the code"}
+                </span>
+              </div>
+
+            </div>
 
             {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-3"
-            >
-              <a
-                href="https://wa.me/96181440046"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white text-sm font-semibold rounded-full shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_30px_rgba(59,130,246,0.55)] hover:bg-blue-700 transition-all duration-200"
+            <div className="flex items-center gap-8">
+              <a 
+                href="https://wa.me/96181440046" 
+                target="_blank" 
+                rel="noreferrer"
+                className="bg-foreground text-background px-8 py-4 text-sm font-bold tracking-wider hover:bg-primary hover:text-white transition-colors duration-300"
               >
-                {t("hero.startProject")} <ArrowRight className="w-4 h-4" />
+                {locale === "ar" ? "ابدأ مشروعك →" : "Start a project →"}
               </a>
-              <a
-                href="#portfolio"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-muted text-sm font-medium rounded-full hover:text-foreground hover:border-muted transition-all duration-200"
+              <a 
+                href="#services"
+                className="text-foreground text-sm font-medium border-b border-border hover:border-foreground pb-1 transition-colors duration-300"
               >
-                {locale === "ar" ? "استعرض أعمالنا →" : "See our work →"}
+                {locale === "ar" ? "انظر التكلفة →" : "See what it costs →"}
               </a>
-            </motion.div>
-          </div>
-
-          {/* Right — studio rail */}
-          <motion.aside
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="hidden lg:flex flex-col gap-0 border border-border rounded-xl overflow-hidden mt-4"
-          >
-            {heroRailItems.map((item, i) => (
-              <div key={i} className={`px-5 py-4 ${i < heroRailItems.length - 1 ? "border-b border-border" : ""}`}>
-                <div className="text-[10px] font-semibold uppercase tracking-widest text-muted mb-1">{item.label}</div>
-                <div className="text-sm text-foreground font-medium">{item.value}</div>
-              </div>
-            ))}
-            <div className="px-5 py-4 border-t border-border">
-              <div className="text-[10px] font-semibold uppercase tracking-widest text-muted mb-1">Instagram</div>
-              <div className="text-sm text-foreground font-medium">@devma.web</div>
             </div>
-          </motion.aside>
-        </div>
-      </div>
-
-      {/* Bottom ribbon — house promises */}
-      <div className="border-t border-border bg-secondary">
-        <div className="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-8" style={{maxWidth:"1200px"}}>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted whitespace-nowrap">
-            {locale === "ar" ? "تعهدات الاستوديو" : "Studio promises"}
-          </span>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-8">
-            {(locale === "ar"
-              ? ["i. كل موقع يُبنى من الصفر — لا قوالب.", "ii. الجوال أولاً، سريع، ويركّز على التحويل.", "iii. أنت تملك الكود. بالكامل."]
-              : ["i. Every website is built from scratch — no templates.", "ii. Mobile-first, fast, and conversion-focused.", "iii. You own the code. Fully."]
-            ).map((p, i) => (
-              <span key={i} className="text-xs text-muted">{p}</span>
-            ))}
           </div>
+
+          {/* Right Column (Sidebar details) */}
+          <aside className="hidden lg:flex flex-col gap-8 pt-2 lg:border-l lg:border-border lg:pl-12">
+            
+            {/* Availability */}
+            <div>
+              <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted mb-3">
+                {t("hero.available")}
+              </div>
+              <div className="text-3xl font-serif text-foreground mb-2 leading-none mt-1">
+                {t("hero.newProjects")}
+              </div>
+              <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted">
+                {t("hero.delivery")} · {t("hero.weeks")}
+              </div>
+            </div>
+
+            {/* Location */}
+            <div className="border-t border-border pt-6">
+              <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted mb-3">
+                {t("hero.location")}
+              </div>
+              <div className="text-gradient italic font-serif text-[1.35rem] leading-tight">
+                {t("hero.worldwide")}
+              </div>
+            </div>
+
+            {/* Instagram */}
+            <div className="border-t border-border pt-6">
+              <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted mb-3">
+                Instagram
+              </div>
+              <a href="https://instagram.com/devma.web" target="_blank" rel="noreferrer" className="text-foreground font-serif text-[1.35rem] hover:text-primary transition-colors">
+                @devma.web
+              </a>
+            </div>
+
+            {/* Index */}
+            <div className="border-t border-border pt-6">
+              <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-muted mb-3">
+                {locale === "ar" ? "الفهرس" : "Index"}
+              </div>
+              <div className="text-foreground font-serif text-lg tracking-wide leading-relaxed">
+                <a href="#services" className="hover:text-primary transition-colors">{t("nav.services")}</a>
+                <span className="mx-2 opacity-50">·</span>
+                <a href="#portfolio" className="hover:text-primary transition-colors">{t("nav.work")}</a>
+                <span className="mx-2 opacity-50">·</span>
+                <a href="#process" className="hover:text-primary transition-colors">{t("nav.process")}</a>
+                <span className="mx-2 opacity-50">·</span>
+                <a href="#contact" className="hover:text-primary transition-colors">{t("nav.contact")}</a>
+              </div>
+            </div>
+
+          </aside>
+
         </div>
       </div>
     </section>

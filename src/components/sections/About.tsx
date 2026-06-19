@@ -37,7 +37,7 @@ export function About() {
           <div className="eyebrow">
             <span className="text-primary">iii.</span> {t("about.eyebrow")}
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-5">
+          <h2 className="text-6xl md:text-6xl font-bold mb-5">
             {locale === "ar" ? (
               <>
                 {t("about.title1")}{" "}
@@ -58,7 +58,7 @@ export function About() {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border rounded-xl overflow-hidden mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border overflow-hidden mb-14">
           {statsData.map((s, i) => (
             <motion.div
               key={i}

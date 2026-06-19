@@ -1,13 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import {
-  MonitorSmartphone, Utensils, ShoppingBag, LayoutTemplate, PenTool, TrendingUp, Wrench,
-} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const icons = [MonitorSmartphone, Utensils, ShoppingBag, LayoutTemplate, PenTool, TrendingUp, Wrench];
 const nums = ["i.", "ii.", "iii.", "iv.", "v.", "vi.", "vii."];
 const tagSets = [
   ["Design", "Code", "SEO"],
@@ -20,74 +15,85 @@ const tagSets = [
 ];
 
 export function Services() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   const services = [
-    { num: nums[0], icon: icons[0], title: t("services.s1Title"), desc: t("services.s1Desc"), tags: tagSets[0] },
-    { num: nums[1], icon: icons[1], title: t("services.s2Title"), desc: t("services.s2Desc"), tags: tagSets[1] },
-    { num: nums[2], icon: icons[2], title: t("services.s3Title"), desc: t("services.s3Desc"), tags: tagSets[2] },
-    { num: nums[3], icon: icons[3], title: t("services.s4Title"), desc: t("services.s4Desc"), tags: tagSets[3] },
-    { num: nums[4], icon: icons[4], title: t("services.s5Title"), desc: t("services.s5Desc"), tags: tagSets[4] },
-    { num: nums[5], icon: icons[5], title: t("services.s6Title"), desc: t("services.s6Desc"), tags: tagSets[5] },
-    { num: nums[6], icon: icons[6], title: t("services.s7Title"), desc: t("services.s7Desc"), tags: tagSets[6] },
+    { num: nums[0], title: t("services.s1Title"), desc: t("services.s1Desc"), tags: tagSets[0] },
+    { num: nums[1], title: t("services.s2Title"), desc: t("services.s2Desc"), tags: tagSets[1] },
+    { num: nums[2], title: t("services.s3Title"), desc: t("services.s3Desc"), tags: tagSets[2] },
+    { num: nums[3], title: t("services.s4Title"), desc: t("services.s4Desc"), tags: tagSets[3] },
+    { num: nums[4], title: t("services.s5Title"), desc: t("services.s5Desc"), tags: tagSets[4] },
+    { num: nums[5], title: t("services.s6Title"), desc: t("services.s6Desc"), tags: tagSets[5] },
+    { num: nums[6], title: t("services.s7Title"), desc: t("services.s7Desc"), tags: tagSets[6] },
   ];
 
   return (
-    <section id="services" className="border-t border-border">
+    <section id="services" className="border-t border-border bg-background relative">
       <div className="container mx-auto px-6 py-20 md:py-32" style={{maxWidth:"1200px"}}>
-        {/* Header */}
-        <div className="mb-14">
-          <div className="eyebrow">
-            <span className="text-primary">i.</span> {t("services.eyebrow")}
+
+        {/* Header Block exactly like Portfolio */}
+        <div className="mb-24 flex gap-4 items-start">
+          <div className="w-[2px] h-6 bg-primary mt-1 hidden md:block"></div>
+          <div>
+            <div className="flex items-center gap-3 mb-4 uppercase tracking-[0.2em] text-[10px] font-bold text-muted">
+               <span className="text-gradient italic font-serif text-base lowercase">i.</span> {t("services.eyebrow")}
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl tracking-tight font-serif text-foreground leading-[1.05] max-w-4xl mb-6">
+              {t("services.title1")} <span className="text-gradient italic font-serif">{t("services.title2")}</span>
+            </h2>
+            
+            <div className="text-muted text-sm md:text-base leading-relaxed max-w-xl">
+              <p className="mb-2">
+                {locale === "ar"
+                  ? "يتم إعداد وتصميم وبرمجة كل مشروع لعميل واحد. لا يوجد شيء جاهز على الرف."
+                  : "Each project is drafted, designed, and coded for one client. Nothing is pulled from a shelf."}
+              </p>
+            </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-5">
-            {t("services.title1")}{" "}
-            <span className="serif-italic" style={{color:"#3B82F6"}}>{t("services.title2")}</span>
-          </h2>
-          <p className="text-muted max-w-lg text-base leading-relaxed">
-            Each project is drafted, designed, and coded for one client. Nothing is pulled from a shelf.
-          </p>
         </div>
 
-        {/* Service list */}
-        <div className="divide-y divide-border">
+        {/* Services List - Editorial Layout */}
+        <div className="border-t border-border mt-6">
           {services.map((s, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group grid grid-cols-1 md:grid-cols-[80px_1fr_auto] gap-4 md:gap-8 items-start py-6 hover:bg-secondary transition-colors -mx-6 px-6 cursor-default"
+              className="group flex flex-col md:flex-row items-start gap-6 md:gap-16 py-8 md:py-10 border-b border-border hover:bg-secondary/5 transition-colors duration-500"
             >
-              {/* Number + icon */}
-              <div className="flex items-center gap-3 md:flex-col md:items-start">
-                <span className="text-primary text-sm font-mono font-bold">{s.num}</span>
-                <div className="w-8 h-8 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted group-hover:text-primary group-hover:bg-primary/10 transition-all">
-                  <s.icon className="w-4 h-4" />
+              {/* Left col: Num + Arrow */}
+              <div className="w-16 flex-shrink-0 flex flex-col gap-4 pt-1">
+                <span className="text-gradient italic font-serif text-2xl">{s.num}</span>
+                <span className="text-muted hidden md:block opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all duration-300 group-hover:translate-x-1">&rarr;</span>
+              </div>
+
+              {/* Middle col: Title + Desc */}
+              <div className="flex-grow">
+                <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                  {s.title}
+                </h3>
+                <p className="text-muted text-sm md:text-base leading-relaxed max-w-2xl">
+                  {s.desc}
+                </p>
+              </div>
+
+              {/* Right col: Tags */}
+              <div className="md:w-48 lg:w-64 flex-shrink-0 md:text-right pt-2">
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/70 group-hover:text-muted transition-colors duration-300">
+                  {s.tags.join(" · ")}
                 </div>
               </div>
-
-              {/* Content */}
-              <div>
-                <h3 className="text-base font-bold text-foreground mb-1">{s.title}</h3>
-                <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 md:justify-end">
-                {s.tags.map((tag) => (
-                  <span key={tag} className="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-border text-muted group-hover:border-primary/30 group-hover:text-primary/80 transition-colors">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <div className="mt-10 pt-6 border-t border-border">
-          <a href="https://wa.me/96181440046" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">
+        <div className="mt-8">
+          <a
+            href="https://wa.me/96181440046"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 text-sm text-muted hover:text-foreground transition-colors duration-300 font-bold tracking-widest uppercase text-[10px]"
+          >
+            <span className="w-6 h-px bg-muted group-hover:w-10 group-hover:bg-primary transition-all duration-300" />
             {t("services.discuss")}
           </a>
         </div>

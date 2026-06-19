@@ -37,15 +37,16 @@ export function Footer() {
   const footerNav = locale === "ar" ? footerNavAr : footerNavEn;
 
   return (
-    <footer className="border-t border-border bg-secondary">
+    <footer className="border-t border-white/5 bg-card/50 relative overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       <div className="container mx-auto px-6 pt-16 pb-8" style={{maxWidth:"1200px"}}>
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-12 mb-14">
           {/* Brand */}
           <div>
             <a href="#" className="inline-flex items-center gap-3 mb-5 group">
-              <div className="w-10 h-10 rounded-full overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 border border-primary/30 bg-background flex-shrink-0">
-                <img src="/logo-alt.jpg" alt="DEVMA Mark" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = '/logo.png'; }} />
+              <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center border border-primary/40 shadow-[0_0_12px_rgba(59,130,246,0.5)] transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.8)]">
+                <img src="/logo-alt.jpeg" alt="DEVMA Mark" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = '/logo.jpg'; }} />
               </div>
               <span className="text-foreground font-bold text-lg tracking-wide uppercase leading-none mt-1" style={{fontFamily:"var(--font-outfit), sans-serif"}}>
                 DEVMA<span className="text-primary">.WEB</span>
@@ -60,14 +61,14 @@ export function Footer() {
                 href="https://instagram.com/devma.web"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-muted transition-all"
+                className="w-9 h-9 border border-border flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover: transition-all duration-300"
                 aria-label="Instagram"
               >
                 <Instagram />
               </a>
               <a
                 href="mailto:devma.web.lb@gmail.com"
-                className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-muted transition-all"
+                className="w-9 h-9 border border-border flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover: transition-all duration-300"
                 aria-label="Email"
               >
                 <Mail />
@@ -76,7 +77,7 @@ export function Footer() {
                 href="https://wa.me/96181440046"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-muted transition-all"
+                className="w-9 h-9 border border-border flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover: transition-all duration-300"
                 aria-label="WhatsApp"
               >
                 <WhatsApp />

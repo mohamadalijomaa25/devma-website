@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function WhyChooseUs() {
@@ -17,51 +16,64 @@ export function WhyChooseUs() {
   ];
 
   return (
-    <section className="border-t border-border bg-secondary">
-      <div className="container mx-auto px-6 py-20 md:py-32" style={{maxWidth:"1200px"}}>
-        {/* Header */}
-        <div className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <div className="eyebrow mb-4">
-              <span className="pulse-dot" />
-              {locale === "ar" ? "نقبل مشاريع جديدة حالياً" : "Currently accepting new clients"}
+    <section className="border-t border-border bg-background relative overflow-hidden">
+      <div className="container mx-auto px-6 py-24 md:py-32 relative z-10" style={{maxWidth:"1200px"}}>
+        
+        {/* Editorial Header */}
+        <div className="mb-24 flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+          
+          <div className="flex gap-4 items-start max-w-4xl">
+            <div className="w-[2px] h-6 bg-primary mt-1 hidden md:block"></div>
+            <div>
+              <div className="flex items-center gap-3 mb-8 uppercase tracking-[0.2em] text-[10px] font-bold text-muted">
+                <span className="text-gradient italic font-serif text-base lowercase">iii.</span> 
+                {locale === "ar" ? "قواعدنا" : "The standard"}
+              </div>
+              
+              <h2 className="text-5xl md:text-[5.5rem] tracking-tight font-serif text-foreground leading-[1.05] mb-6">
+                {t("why.title1")}{" "}
+                <span className="text-gradient italic font-serif">{t("why.title2")}</span>
+                {locale === "ar" ? "؟" : "?"}
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold">
-              {t("why.title1")}{" "}
-              <span className="serif-italic" style={{color:"#3B82F6"}}>{t("why.title2")}</span>
-            </h2>
           </div>
-          <a
-            href="https://wa.me/96181440046"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-primary hover:underline whitespace-nowrap"
-          >
-            {t("why.startConversation")}
-          </a>
+
+          <div className="pb-2">
+            <a
+              href="https://wa.me/96181440046"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted hover:text-foreground transition-colors duration-300"
+            >
+              <span className="w-6 h-px bg-muted group-hover:w-10 group-hover:bg-primary transition-all duration-300" />
+              {t("why.startConversation")}
+            </a>
+          </div>
+
         </div>
 
-        {/* Reasons — 2 column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border rounded-xl overflow-hidden">
+        {/* Clean Editorial Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border">
           {reasons.map((r, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="bg-secondary hover:bg-background transition-colors p-7 group"
+              className="group relative p-10 md:p-12 border-b border-r border-border hover:bg-secondary/5 transition-colors duration-500 flex flex-col h-full"
             >
-              <div className="flex items-start gap-4">
-                <span className="text-primary font-mono text-xs font-bold mt-1 flex-shrink-0">{r.mark}</span>
-                <div>
-                  <h3 className="text-base font-bold text-foreground mb-2">{r.title}</h3>
-                  <p className="text-muted text-sm leading-relaxed">{r.desc}</p>
-                </div>
-              </div>
-            </motion.div>
+              <span className="text-gradient italic font-serif text-2xl block mb-8 opacity-70 group-hover:opacity-100 transition-opacity">
+                {r.mark}
+              </span>
+              
+              <h3 className="font-serif text-3xl md:text-[2rem] text-foreground mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                {r.title}
+              </h3>
+              
+              <p className="text-muted text-sm leading-[1.8] flex-grow">
+                {r.desc}
+              </p>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );

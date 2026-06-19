@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 export default function RootLayout({
   children,
@@ -30,8 +31,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} ${instrumentSerif.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <ThemeProvider>
           <LanguageProvider>
+            <CustomCursor />
             {children}
           </LanguageProvider>
         </ThemeProvider>
