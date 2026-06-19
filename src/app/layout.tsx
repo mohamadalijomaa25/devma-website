@@ -13,9 +13,9 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://devma.website'),
-  title: "DEVMA | Premium Web Design & Development Studio",
+  title: "DEVMA | Premium Web Design & Development Agency",
   description:
-    "DEVMA is a premium web design and development studio. We build high-conversion, custom websites that help ambitious brands build authority and drive revenue.",
+    "DEVMA is a premium web design and development agency. We build high-conversion, custom websites that help ambitious brands build authority and drive revenue.",
   keywords: "web design, web development, premium websites, conversion rate optimization, Next.js, React, DEVMA",
 };
 

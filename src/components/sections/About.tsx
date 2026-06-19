@@ -17,8 +17,8 @@ export function About() {
       mark: "§ iv.",
       sign: locale === "ar" ? "— عن التواصل" : "— on correspondence",
       text: locale === "ar"
-        ? "الكتابة إلى الاستوديو هي محادثة، وليست تذكرة دعم. الرسائل يقرأها إنسان؛ والردود تأتي في جمل، في نفس اليوم."
-        : "Writing to the studio is a conversation, not a ticket. Messages are read by a person; replies come back in sentences, the same day.",
+        ? "الكتابة إلينا هي محادثة، وليست تذكرة دعم. الرسائل يقرأها إنسان؛ والردود تأتي في جمل، في نفس اليوم."
+        : "Writing to us is a conversation, not a ticket. Messages are read by a person; replies come back in sentences, the same day.",
     },
   ];
 
@@ -44,7 +44,7 @@ export function About() {
               </>
             ) : (
               <>
-                A few studio rules,{" "}
+                A few working rules,{" "}
                 <span className="serif-italic" style={{color:"#3B82F6"}}>in longhand.</span>
               </>
             )}

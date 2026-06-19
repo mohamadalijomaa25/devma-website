@@ -47,7 +47,7 @@ export function Contact() {
     <section id="contact" className="border-t border-border">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] min-h-[600px]">
 
-        {/* ── Left pane: Studio credentials ─────────── */}
+        {/* ── Left pane: Agency credentials ─────────── */}
         <div className="relative bg-secondary/30 border-b lg:border-b-0 lg:border-r border-white/5 px-8 md:px-16 py-20 md:py-28 flex flex-col justify-between overflow-hidden">
 
           {/* ambient top-left glow */}
@@ -112,7 +112,7 @@ export function Contact() {
             </motion.div>
           </div>
 
-          {/* Bottom: studio stamp */}
+          {/* Bottom: agency stamp */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

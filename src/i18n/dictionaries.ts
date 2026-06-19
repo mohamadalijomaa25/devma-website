@@ -15,7 +15,7 @@ export const dictionaries = {
       weeks: "1-2 Weeks",
       location: "Location",
       worldwide: "Worldwide",
-      title1: "A digital studio for",
+      title1: "A digital agency for",
       title2: "ambitious brands.",
       desc: "We design and build premium, conversion-focused websites that elevate your business. No templates. No compromises.",
       startProject: "Start a project",
@@ -50,7 +50,7 @@ export const dictionaries = {
     },
     about: {
       eyebrow: "Marginalia",
-      title1: "The studio's",
+      title1: "Our core",
       title2: "rules.",
       r1Title: "— on the craft",
       r1Desc: "Every project is a careful study of architecture and typography. We write our own code, define our own grids, and build digital spaces that feel deeply intentional.",
@@ -119,7 +119,7 @@ export const dictionaries = {
     },
     contact: {
       eyebrow: "Reading messages now",
-      title1: "Write to the studio.",
+      title1: "Write to us.",
       title2: "Somebody reads every note.",
       desc: "Fast reply from DEVMA. Fill out the form, and it will instantly open a WhatsApp conversation with us.",
       remote: "Remote · Worldwide",
@@ -139,11 +139,11 @@ export const dictionaries = {
       opensWhatsapp: "Opens directly in WhatsApp",
     },
     footer: {
-      desc: "A digital studio crafting premium websites that build authority and drive revenue for ambitious brands worldwide.",
+      desc: "A digital agency crafting premium websites that build authority and drive revenue for ambitious brands worldwide.",
       explore: "Explore",
       socials: "Socials",
       contact: "Contact",
-      copyright: "DEVMA Web Studio. All rights reserved.",
+      copyright: "DEVMA. All rights reserved.",
       backToTop: "Back to top ↑",
     }
   },
@@ -163,7 +163,7 @@ export const dictionaries = {
       weeks: "1-2 أسابيع",
       location: "الموقع",
       worldwide: "حول العالم",
-      title1: "استوديو رقمي",
+      title1: "وكالة رقمية",
       title2: "للعلامات الطموحة.",
       desc: "نقوم بتصميم وبناء مواقع إلكترونية احترافية تزيد من مبيعاتك وترفع من قيمة عملك. لا نستخدم القوالب الجاهزة. لا نقبل المساومة على الجودة.",
       startProject: "ابدأ مشروعك",
@@ -199,7 +199,7 @@ export const dictionaries = {
     about: {
       eyebrow: "هوامش",
       title1: "قواعد",
-      title2: "الاستوديو.",
+      title2: "عملنا.",
       r1Title: "— عن الحرفة",
       r1Desc: "كل مشروع هو دراسة دقيقة للبنية التحتية والطباعة. نكتب أكوادنا الخاصة، ونبني مساحات رقمية ذات طابع أصيل ومميز.",
       r2Title: "— عن السرعة",
@@ -267,7 +267,7 @@ export const dictionaries = {
     },
     contact: {
       eyebrow: "نقرأ الرسائل الآن",
-      title1: "اكتب إلى الاستوديو.",
+      title1: "تواصل معنا.",
       title2: "هناك من يقرأ كل رسالة.",
       desc: "رد سريع من DEVMA. املأ النموذج، وسيفتح محادثة واتساب معنا فوراً.",
       remote: "عن بعد · حول العالم",
@@ -287,11 +287,11 @@ export const dictionaries = {
       opensWhatsapp: "يفتح مباشرة في واتساب",
     },
     footer: {
-      desc: "استوديو رقمي يصنع مواقع إلكترونية مميزة تبني الموثوقية وتزيد المبيعات للعلامات التجارية الطموحة حول العالم.",
+      desc: "وكالة رقمية تصنع مواقع إلكترونية مميزة تبني الموثوقية وتزيد المبيعات للعلامات التجارية الطموحة حول العالم.",
       explore: "استكشف",
       socials: "وسائل التواصل",
       contact: "تواصل",
-      copyright: "استوديو DEVMA للويب. جميع الحقوق محفوظة.",
+      copyright: "DEVMA. جميع الحقوق محفوظة.",
       backToTop: "العودة للأعلى ↑",
     }
   }
